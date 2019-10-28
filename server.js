@@ -24,6 +24,7 @@ app.listen(port,()=>{
 
 var query = "CREATE TABLE employee_details (id INT(20) AUTO_INCREMENT PRIMARY KEY ,name VARCHAR(255), address VARCHAR(255))";
 
+//GET REQUEST
 app.get('/',(req,res)=>{
     res.send("Hi Sumit ! Table Created");
     connection.query(query, (err,rows,fields)=>{
@@ -33,6 +34,7 @@ app.get('/',(req,res)=>{
     })
 });
 
+//GET REQUEST FOR ALL EMPLOYEE
 app.get('/getAllEmployeeDetails',(req,res)=>{
     connection.query("SELECT * FROM employee_details",(err,rows,fields)=>{
         if(err) throw err
@@ -41,6 +43,7 @@ app.get('/getAllEmployeeDetails',(req,res)=>{
     })
 })
 
+//GET REQUEST FOR EMPLOYEE WITH ID
 app.get('/getEmployeeDetail/:id', (req,res)=>{
     
     connection.query('SELECT * FROM employee_details WHERE id = ?',[req.params.id],(err,rows,fields)=>{
@@ -48,6 +51,8 @@ app.get('/getEmployeeDetail/:id', (req,res)=>{
         res.send(rows);
     })
 })
+
+//POST or PUT REQUEST TO CREATE NEW EMPLOYEE
 app.put('/createEmployee',(req,res)=>
 {
     res.send("Data inserted");
