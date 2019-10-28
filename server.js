@@ -51,13 +51,13 @@ app.get('/getEmployeeDetail/:id', (req,res)=>{
 app.put('/createEmployee',(req,res)=>
 {
     res.send("Data inserted");
-    connection.query("INSERT INTO employee_details (name , address) VALUES ('Swati' , 'California')",
+    connection.query("INSERT INTO employee_details (name , address) VALUES ('ARPITA VATS' , 'BOSTON')",
      (err,rows, fields)=>{
         if(err) throw err
         res.send(rows);
         console.log("Data1 Inserted into table");
     });
-    connection.query("INSERT INTO employee_details (name , address) VALUES ('Richa' , 'Boston')"
+    connection.query("INSERT INTO employee_details (name , address) VALUES ('SWATI TANVI' , 'BANGALORE')"
     , (err,result)=>{
         if(err) throw err
         console.log("Data2 Inserted into table");
